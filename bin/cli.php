@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env php
 <?php
 /**
  * Entry point of the console application.
