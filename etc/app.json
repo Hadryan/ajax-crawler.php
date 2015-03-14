@@ -1,0 +1,26 @@
+{
+  "id": "ajax-crawler",
+  "name": "AJAX Crawler",
+
+  "defaultRoute": "snapshot/home",
+  "runtimePath": "@root/var",
+  "vendorPath": "@root/vendor",
+
+  "components": {
+    "cache": "yii\\caching\\FileCache",
+    "crawler": "ajaxCrawler\\core\\Crawler",
+    "urlManager": {
+      "enablePrettyUrl": true,
+      "showScriptName": false,
+      "rules": [
+        { "class": "yii\\rest\\UrlRule", "controller": "snapshot" }
+      ]
+    }
+  },
+  "params": {
+    "accessControl": {
+      "allowMethods": "DELETE, GET, POST, PUT",
+      "allowOrigin": "*"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "autoLoadImages": false,
+  "diskCacheEnabled": false,
+  "ignoreSslErrors": true,
+  "outputEncoding": "utf8",
+  "sslProtocol": "any",
+  "webSecurityEnabled": false
+}

@@ -24,7 +24,7 @@ trait ApplicationTrait {
    * @static
    */
   public static function loadConfig($path) {
-    $files=[ 'crawler.json', YII_ENV.'/crawler.json' ];
+    $files=[ 'app.json', YII_ENV.'/app.json' ];
 
     $settings=[];
     foreach($files as $file) {
