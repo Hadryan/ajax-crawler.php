@@ -42,8 +42,8 @@ $ composer install
 
 #### `etc` folder
 Contains the configuration files:
-- `crawler.json`: contains the settings of this project.
-- `phantomjs.json`: contains the settings of the PhantomJS program.
+- `app.json`: contains the settings of this project.
+- `crawler.json`: contains the settings of the PhantomJS program.
 
 Subfolders provide overrides for different environments:
 - `dev`: the development environment.
