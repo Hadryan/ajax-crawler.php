@@ -1,0 +1,52 @@
+{
+  "description": "An AJAX website crawler with cache for Google indexation.",
+  "homepage": "https://github.com/aquafadas-com/ajax-crawler.php",
+  "name": "aquafadas/ajax-crawler",
+
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "type": "project",
+
+  "authors": [{
+    "email": "cloudconnect@aquafadas.com",
+    "name": "Aquafadas"
+  }],
+  "autoload": {
+    "psr-4": { "ajaxCrawler\\": "lib/" }
+  },
+  "config": {
+    "bin-dir": "bin"
+  },
+  "extra": {
+    "asset-installer-paths": {
+      "bower-asset-library": "vendor/bower",
+      "npm-asset-library": "vendor/npm"
+    },
+    "yii\\composer\\Installer::postCreateProject": {
+      "setPermission": [{
+        "var": "0777",
+        "www/assets": "0777"
+      }]
+    }
+  },
+  "keywords": [
+    "ajax",
+    "cache",
+    "crawl",
+    "google",
+    "html",
+    "phantomjs",
+    "seo",
+    "snapshot"
+  ],
+  "require": {
+    "php": ">=5.5.0",
+    "yiisoft/yii2": "^2.0.3"
+  },
+  "require-dev": {
+    "yiisoft/yii2-debug": "^2.0.3"
+  },
+  "support": {
+    "issues": "https://github.com/aquafadas-com/ajax-crawler.php/issues"
+  }
+}

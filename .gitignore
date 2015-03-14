@@ -1,0 +1,7 @@
+/*.komodoproject
+/bin/yii*
+/composer.lock
+/etc/dev/
+/var/
+/vendor/
+/www/assets/
