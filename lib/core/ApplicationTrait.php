@@ -18,12 +18,12 @@ trait ApplicationTrait {
 
   /**
    * Parses the application configuration.
-   * @method loadConfig
+   * @method parseConfig
    * @param {string} $path The path of the directory containing the configuration files.
    * @return {array} The parsed configuration.
    * @static
    */
-  public static function loadConfig($path) {
+  public static function parseConfig($path) {
     $files=[ 'app.json', YII_ENV.'/app.json' ];
 
     $settings=[];

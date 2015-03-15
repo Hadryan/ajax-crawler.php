@@ -1,8 +1,8 @@
 {
-  "id": "ajax-crawler",
+  "id": "ajax-crawler.php",
   "name": "AJAX Crawler",
 
-  "defaultRoute": "snapshot/home",
+  "defaultRoute": "snapshot",
   "runtimePath": "@root/var",
   "vendorPath": "@root/vendor",
 

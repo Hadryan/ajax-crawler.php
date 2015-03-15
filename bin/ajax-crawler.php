@@ -20,7 +20,7 @@ require_once $rootPath.'/vendor/yiisoft/yii2/Yii.php';
 Yii::setAlias('@ajaxCrawler', "$rootPath/lib");
 Yii::setAlias('@root', $rootPath);
 
-$config=Application::loadConfig('@root/etc');
+$config=Application::parseConfig('@root/etc');
 $config['basePath']=Yii::getAlias('@root/lib/cli');
 $exitCode=(new Application($config))->run();
 exit($exitCode);

@@ -1,4 +1,5 @@
 /*.komodoproject
+/bin/markdown*
 /bin/yii*
 /composer.lock
 /etc/dev/

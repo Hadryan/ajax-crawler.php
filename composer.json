@@ -14,6 +14,9 @@
   "autoload": {
     "psr-4": { "ajaxCrawler\\": "lib/" }
   },
+  "bin": [
+    "bin/ajax-crawler.php"
+  ],
   "config": {
     "bin-dir": "bin"
   },

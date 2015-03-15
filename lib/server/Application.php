@@ -24,6 +24,13 @@ class Application extends \yii\web\Application {
   }
 
   /**
+   * The namespace that controller classes are located in.
+   * @property controllerNamespace
+   * @type string
+   */
+  public $controllerNamespace=__NAMESPACE__.'\controllers';
+
+  /**
    * Raised after the application successfully handles a request.
    * @method onAfterRequest
    * @param {yii.base.Event} $event The event parameter.

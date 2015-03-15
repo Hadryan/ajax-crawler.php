@@ -17,4 +17,28 @@ use ajaxCrawler\core\ApplicationTrait;
  */
 class Application extends \yii\console\Application {
   use ApplicationTrait;
+
+  /**
+   * The namespace that controller classes are located in.
+   * @property controllerNamespace
+   * @type string
+   */
+  public $controllerNamespace=__NAMESPACE__.'\controllers';
+
+  /**
+   * Whether to enable the commands provided by the core framework.
+   * @property enableCoreCommands
+   * @type bool
+   */
+  public $enableCoreCommands=false;
+
+  /**
+   * Initializes the application.
+   * @method init
+   * @throws {yii.base.InvalidCallException} The underlying cache component is invalid.
+   */
+  public function init() {
+    $this->controllerMap['cache']='yii\console\controllers\CacheController';
+    parent::init();
+  }
 }
