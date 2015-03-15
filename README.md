@@ -1,6 +1,5 @@
 # AJAX-Crawler.php
-An AJAX website crawler with cache for [Google indexation](https://developers.google.com/webmasters/ajax-crawling/docs/specification),
-implemented in [PHP](https://php.net).
+An AJAX website crawler with cache for [Google indexation](https://developers.google.com/webmasters/ajax-crawling/docs/specification), in [PHP](https://php.net).
 
 ## Requirements
 - The latest [PHP](https://php.net) and [Composer](https://getcomposer.org) versions.

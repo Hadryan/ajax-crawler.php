@@ -63,6 +63,14 @@ class Crawler extends Object {
   public $cachingDuration=(24*3600);
 
   /**
+   * Value indicating whether to process escaped fragments in URLs.
+   * @property escapedFragments
+   * @type bool
+   * @default true
+   */
+  public $escapedFragments=true;
+
+  /**
    * The path or alias to the PhantomJS program.
    * @property phantomjsPath
    * @type string
@@ -110,7 +118,7 @@ class Crawler extends Object {
         $this->getPhantomjsPath(),
         \Yii::getAlias('@root/etc/crawler.json'),
         \Yii::getAlias('@ajaxCrawler/core/Crawler.js'),
-        static::processEscapedFragment($url)
+        $this->escapedFragments ? static::processEscapedFragment($url) : $url
       );
 
       exec($command, $output, $exitCode);
