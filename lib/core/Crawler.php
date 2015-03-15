@@ -64,11 +64,11 @@ class Crawler extends Object {
 
   /**
    * Value indicating whether to process escaped fragments in URLs.
-   * @property escapedFragments
+   * @property decodeEscapedFragments
    * @type bool
    * @default true
    */
-  public $escapedFragments=true;
+  public $decodeEscapedFragments=true;
 
   /**
    * The path or alias to the PhantomJS program.
@@ -118,7 +118,7 @@ class Crawler extends Object {
         $this->getPhantomjsPath(),
         \Yii::getAlias('@root/etc/crawler.json'),
         \Yii::getAlias('@ajaxCrawler/core/Crawler.js'),
-        $this->escapedFragments ? static::processEscapedFragment($url) : $url
+        $this->decodeEscapedFragments ? static::decodeEscapedFragment($url) : $url
       );
 
       exec($command, $output, $exitCode);
@@ -149,12 +149,12 @@ class Crawler extends Object {
 
   /**
    * Replaces the escaped fragment found in query string by the corresponding decoded hash fragment.
-   * @method processEscapedFragment
+   * @method decodeEscapedFragment
    * @param {string} $url The URL to process.
    * @return {string} The processed URL.
    * @static
    */
-  public static function processEscapedFragment($url) {
+  public static function decodeEscapedFragment($url) {
     $escapedFragment=mb_strpos($url, static::ESCAPED_FRAGMENT);
     if($escapedFragment!==false) {
       $baseUrl=rtrim(mb_substr($url, 0, $escapedFragment), '&');
