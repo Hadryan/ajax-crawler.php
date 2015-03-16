@@ -46,21 +46,21 @@ class Crawler extends Object {
 
   /**
    * The identifier of the cache application component that is used to cache the snapshots.
-   * If set to `false`, caching is disabled. Defaults to "cache" in production environment, which refers to the primary cache application component.
+   * If set to `null`, caching is disabled.
    * @property cacheId
    * @type string
-   * @default "cache"
+   * @default null
    */
-  public $cacheId=(YII_ENV_PROD ? 'cache' : false);
+  public $cacheId=null;
 
   /**
    * The time in seconds that the snapshots can remain valid in cache.
-   * If set to `0`, the cache never expires. Defaults to 24 hours.
+   * If set to `0`, the cache never expires.
    * @property cachingDuration
    * @type int
-   * @default 24*3600
+   * @default 0
    */
-  public $cachingDuration=(24*3600);
+  public $cachingDuration=0;
 
   /**
    * Value indicating whether to process escaped fragments in URLs.
