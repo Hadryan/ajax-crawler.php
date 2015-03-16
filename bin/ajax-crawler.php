@@ -17,10 +17,10 @@ require_once $rootPath.'/vendor/autoload.php';
 require_once $rootPath.'/vendor/yiisoft/yii2/Yii.php';
 
 // Start the application.
-Yii::setAlias('@ajaxCrawler', "$rootPath/lib");
 Yii::setAlias('@root', $rootPath);
+Yii::setAlias('@ajaxCrawler', '@root/lib');
 
 $config=Application::parseConfig('@root/etc');
-$config['basePath']=Yii::getAlias('@root/lib/cli');
+$config['basePath']=Yii::getAlias('@ajaxCrawler/cli');
 $exitCode=(new Application($config))->run();
 exit($exitCode);
