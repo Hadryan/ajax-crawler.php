@@ -20,7 +20,7 @@ class Application extends \yii\web\Application {
 
   public function __construct($config=[]) {
     parent::__construct($config);
-    $this->on('afterRequest', [ $this, 'onAfterRequest' ]);
+    $this->on(static::EVENT_AFTER_REQUEST, [ $this, 'onAfterRequest' ]);
   }
 
   /**
@@ -28,7 +28,7 @@ class Application extends \yii\web\Application {
    * @property controllerNamespace
    * @type string
    */
-  public $controllerNamespace=__NAMESPACE__.'\controllers';
+  public $controllerNamespace='ajaxCrawler\server\controllers';
 
   /**
    * Raised after the application successfully handles a request.

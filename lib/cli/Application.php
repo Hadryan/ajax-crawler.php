@@ -23,7 +23,7 @@ class Application extends \yii\console\Application {
    * @property controllerNamespace
    * @type string
    */
-  public $controllerNamespace=__NAMESPACE__.'\controllers';
+  public $controllerNamespace='ajaxCrawler\cli\controllers';
 
   /**
    * Whether to enable the commands provided by the core framework.
@@ -35,7 +35,6 @@ class Application extends \yii\console\Application {
   /**
    * Initializes the application.
    * @method init
-   * @throws {yii.base.InvalidCallException} The underlying cache component is invalid.
    */
   public function init() {
     $this->controllerMap['cache']='yii\console\controllers\CacheController';
