@@ -37,14 +37,6 @@ class Crawler extends Object {
   const ESCAPED_FRAGMENT='_escaped_fragment_';
 
   /**
-   * The underlying cache component that is used to cache the snapshots.
-   * @property cache
-   * @type yii.caching.Cache
-   * @private
-   */
-  private $cache;
-
-  /**
    * The identifier of the cache application component that is used to cache the snapshots.
    * If set to `null`, caching is disabled.
    * @property cacheId
@@ -75,32 +67,7 @@ class Crawler extends Object {
    * @property phantomjsPath
    * @type string
    */
-  private $phantomjsPath;
-
-  public function getPhantomjsPath() {
-    if(!isset($this->phantomjsPath)) {
-      switch(mb_strtolower(PHP_OS)) {
-        case 'winnt':
-          $this->setPhantomjsPath('@root/bin/phantomjs.exe');
-          break;
-
-        case 'darwin':
-          $this->setPhantomjsPath('@root/bin/phantomjs.osx');
-          break;
-
-        case 'linux':
-        default:
-          $this->phantomjsPath='/usr/bin/phantomjs';
-          break;
-      }
-    }
-
-    return $this->phantomjsPath;
-  }
-
-  public function setPhantomjsPath($value) {
-    $this->phantomjsPath=\Yii::getAlias($value);
-  }
+  public $phantomjsPath;
 
   /**
    * Loads the web page located at the specified URL and returns its HTML content.
@@ -115,7 +82,7 @@ class Crawler extends Object {
     if(!is_string($value)) {
       $command=sprintf(
         '"%s" --config="%s" "%s" "%s"',
-        $this->getPhantomjsPath(),
+        \Yii::getAlias($this->phantomjsPath),
         \Yii::getAlias('@root/etc/crawler.json'),
         \Yii::getAlias('@ajaxCrawler/core/Crawler.js'),
         $this->decodeEscapedFragments ? static::decodeEscapedFragment($url) : $url
@@ -137,11 +104,21 @@ class Crawler extends Object {
    * @throws {yii.base.InvalidCallException} The underlying cache component is invalid.
    */
   public function init() {
-    if(!is_string($this->cacheId)) $this->cache=\Yii::createObject('yii\caching\DummyCache');
-    else {
-      $this->cache=\Yii::$app->get($this->cacheId);
-      if(!$this->cache instanceof \yii\caching\Cache)
-        throw new InvalidCallException(\Yii::t('yii', 'Invalid cache component "{cacheId}".', [ 'cacheId'=>$this->cacheId ]));
+    if(!is_string($this->phantomjsPath)) {
+      switch(mb_strtolower(PHP_OS)) {
+        case 'winnt':
+          $this->phantomjsPath='@root/bin/phantomjs.exe';
+          break;
+
+        case 'darwin':
+          $this->phantomjsPath='@root/bin/phantomjs.osx';
+          break;
+
+        case 'linux':
+        default:
+          $this->phantomjsPath='/usr/bin/phantomjs';
+          break;
+      }
     }
 
     parent::init();
