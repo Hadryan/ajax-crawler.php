@@ -9,7 +9,7 @@ use ajaxCrawler\cli\Application;
 // Set the environment.
 $devEnvironment=in_array('--debug', $argv);
 define('YII_DEBUG', $devEnvironment);
-define('YII_ENV', $devEnvironment ? 'dev' : 'prod');
+define('YII_ENV', getenv('YII_ENV') ?: ($devEnvironment ? 'dev' : 'prod'));
 
 // Load the dependencies.
 $rootPath=dirname(__DIR__);
